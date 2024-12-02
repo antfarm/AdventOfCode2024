@@ -30,11 +30,9 @@ struct Day2 {
                 return true
             }
             
-            let dampenedReportIndex = Array(0..<report.count).first(where: { i in
+            return Array(0..<report.count).contains(where: { i in
                 isReportSafe(report: Array(report[..<i] + report[(i + 1)...]))
             })
-
-            return dampenedReportIndex != nil
         }
         
         return String(safeReports.count)
