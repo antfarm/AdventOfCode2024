@@ -13,12 +13,11 @@ struct Day3 {
     static func part1(_ input: String) -> String {
         
         let regex = /mul\(([1-9][0-9]{0,2}),([1-9][0-9]{0,2})\)/
-
-        let products = input
+        
+        let result = input
             .matches(of: regex)
             .map { Int($0.1)! * Int($0.2)! }
-                
-        let result = products.reduce(0, +)
+            .reduce(0, +)
         
         return String(result) // 170778545
     }
@@ -26,14 +25,13 @@ struct Day3 {
     
     static func part2(_ input: String) -> String {
         
-        let regex = /do\(\)(.*?)don't\(\)/.dotMatchesNewlines() // ? for lazy (vs. greedy) matching
-        
-        let enabledParts = "do()\(input)don't()"
-            .matches(of:regex)
+        let regex = /do\(\)(.*?)don't\(\)/.dotMatchesNewlines() // ? for lazy matching
+
+        let enabled = "do()\(input)don't()"
+            .matches(of: regex)
             .map { $0.1 }
+            .joined(separator: " ")
         
-        let result = part1(enabledParts.joined(separator: " "))
-        
-        return result // 82868252
+        return part1(enabled) // 82868252
     }
 }

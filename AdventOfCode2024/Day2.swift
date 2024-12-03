@@ -12,9 +12,7 @@ struct Day2 {
     
     static func part1(_ input: String) -> String {
         
-        let reports = createReports(fromInput: input)
-        
-        let safeReports = reports.filter { isReportSafe(report: $0) }
+        let safeReports = reports(fromInput: input).filter { isSafe(report: $0) }
         
         return String(safeReports.count) // 306
     }
@@ -22,16 +20,12 @@ struct Day2 {
     
     static func part2(_ input: String) -> String {
         
-        let reports = createReports(fromInput: input)
-              
-        let safeReports = reports.filter { report in
-            
-            if isReportSafe(report: report) {
-                return true
-            }
-            
-            return Array(0..<report.count).contains(where: { i in
-                isReportSafe(report: Array(report[..<i] + report[(i + 1)...]))
+        // No need to check with isSafe() first, as every safe report will
+        // still be safe with the first level removed.
+
+        let safeReports = reports(fromInput: input).filter { report in
+            Array(0..<report.count).contains(where: { i in
+                isSafe(report: Array(report[..<i] + report[(i + 1)...]))
             })
         }
         
@@ -39,7 +33,7 @@ struct Day2 {
     }
 
         
-    fileprivate static func isReportSafe(report: [Int]) -> Bool {
+    fileprivate static func isSafe(report: [Int]) -> Bool {
 
         let pairs = zip(report, report.dropFirst())
         
@@ -48,14 +42,13 @@ struct Day2 {
     }
 
 
-    fileprivate static func createReports(fromInput input: String) -> [[Int]] {
+    fileprivate static func reports(fromInput input: String) -> [[Int]] {
         
         let lines = input.components(separatedBy: "\n")
         
-        let reports = lines.map { line in
+        return lines.map { line in
             line.components(separatedBy: " ").map { Int($0)! }
         }
-        
-        return reports
+
     }
 }
