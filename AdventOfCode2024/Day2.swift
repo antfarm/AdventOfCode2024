@@ -16,7 +16,7 @@ struct Day2 {
         
         let safeReports = reports.filter { isReportSafe(report: $0) }
         
-        return String(safeReports.count)
+        return String(safeReports.count) // 306
     }
     
     
@@ -35,7 +35,7 @@ struct Day2 {
             })
         }
         
-        return String(safeReports.count)
+        return String(safeReports.count) // 366
     }
 
         

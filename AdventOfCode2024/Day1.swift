@@ -17,7 +17,7 @@ struct Day1 {
         let differences = zip(left.sorted(), right.sorted()).map { abs($0.0 - $0.1) }
         let sum = differences.reduce(0, +)
         
-        return String(sum)
+        return String(sum) // 1873376
     }
     
     
@@ -30,7 +30,7 @@ struct Day1 {
         let values = left.map { $0 * (occurences[$0] ?? 0) }
         let sum = values.reduce(0, +)
         
-        return String(sum)
+        return String(sum) // 18997088
     }
     
     
