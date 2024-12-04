@@ -15,6 +15,7 @@ let allSolutions: [Int:[Solution]] = [
     1: [Day1.part1, Day1.part2],
     2: [Day2.part1, Day2.part2],
     3: [Day3.part1, Day3.part2],
+    4: [Day4.part1, Day4.part2],
 ]
 
 
