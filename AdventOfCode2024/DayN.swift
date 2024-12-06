@@ -2,7 +2,7 @@
 //  DayN.swift
 //  AdventOfCode2024
 //
-//  Created by Sean Buttinger on 02.12.24.
+//  Created by Sean Buttinger on N.12.24.
 //
 
 import Foundation
@@ -12,7 +12,7 @@ struct DayN {
     
     static func part1(_ input: String) -> String {
         
-        let lines = input.components(separatedBy: "\n")
+        let lines = input.split(separator: "\n")
         
         return String(lines.count)
     }
@@ -20,7 +20,7 @@ struct DayN {
     
     static func part2(_ input: String) -> String {
         
-        let lines = input.components(separatedBy: "\n")
+        let lines = input.split(separator: "\n")
         
         return String(lines.count)
     }

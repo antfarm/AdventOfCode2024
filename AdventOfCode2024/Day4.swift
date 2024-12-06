@@ -20,7 +20,7 @@ struct Day4 {
             try! Regex("(?=X.{\(n+1)}M.{\(n+1)}A.{\(n+1)}S)").dotMatchesNewlines() // ?= lookahead
         }
         
-        return String(horizontalCount + diagonalCount) // 2560
+        return String(horizontalCount + diagonalCount)
     }
     
     
@@ -30,13 +30,13 @@ struct Day4 {
             try! Regex("(?=M.S.{\(n-1)}A.{\(n-1)}M.S)").dotMatchesNewlines() // ?= lookahead
         }
         
-        return String(count) // 1910
+        return String(count)
     }
     
     
     fileprivate static func countMatchesInRotatedInput(input: String, regexClosure: (Int) -> Regex<Substring>) -> Int {
         
-        let lines = input.components(separatedBy: "\n")        
+        let lines = input.split(separator: "\n")        
         let matrix = lines.map { $0.map { String($0) } }
         
         let count = (1...4).reduce((matrix, 0)) { acc, _ in

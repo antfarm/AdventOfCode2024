@@ -17,7 +17,7 @@ struct Day1 {
         let differences = zip(left.sorted(), right.sorted()).map { abs($0.0 - $0.1) }
         let sum = differences.reduce(0, +)
         
-        return String(sum) // 1873376
+        return String(sum)
     }
     
     
@@ -30,14 +30,14 @@ struct Day1 {
         let values = left.map { $0 * (frequencies[$0] ?? 0) }
         let sum = values.reduce(0, +)
         
-        return String(sum) // 18997088
+        return String(sum)
     }
     
     
     static fileprivate func lists(fromInput input: String) -> ([Int], [Int]) {
         
-        let lines = input.components(separatedBy: "\n")
-        let pairs = lines.map { $0.components(separatedBy: "   ").map { Int($0)! } }
+        let lines = input.split(separator: "\n")
+        let pairs = lines.map { $0.split(separator: "   ").map { Int($0)! } }
         
         let left = pairs.map { $0.first! }
         let right = pairs.map { $0.last! }

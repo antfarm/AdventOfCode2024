@@ -14,7 +14,7 @@ struct Day2 {
         
         let safeReports = reports(fromInput: input).filter { isSafe(report: $0) }
         
-        return String(safeReports.count) // 306
+        return String(safeReports.count)
     }
     
     
@@ -29,7 +29,7 @@ struct Day2 {
             })
         }
         
-        return String(safeReports.count) // 366
+        return String(safeReports.count)
     }
 
         
@@ -44,10 +44,10 @@ struct Day2 {
 
     fileprivate static func reports(fromInput input: String) -> [[Int]] {
         
-        let lines = input.components(separatedBy: "\n")
+        let lines = input.split(separator: "\n")
         
         return lines.map { line in
-            line.components(separatedBy: " ").map { Int($0)! }
+            line.split(separator: " ").map { Int($0)! }
         }
 
     }

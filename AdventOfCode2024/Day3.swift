@@ -19,7 +19,7 @@ struct Day3 {
             .map { Int($0.1)! * Int($0.2)! }
             .reduce(0, +)
         
-        return String(result) // 170778545
+        return String(result)
     }
         
     
@@ -27,11 +27,11 @@ struct Day3 {
         
         let regex = /do\(\)(.*?)don't\(\)/.dotMatchesNewlines() // ? for lazy matching
 
-        let enabled = "do()\(input)don't()"
+        let enabledInput = "do()\(input)don't()"
             .matches(of: regex)
             .map { $0.1 }
             .joined(separator: " ")
         
-        return part1(enabled) // 82868252
+        return part1(enabledInput)
     }
 }
