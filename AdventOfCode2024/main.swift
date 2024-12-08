@@ -18,6 +18,7 @@ let days: [Int:[Solution]] = [
     4: [Day4.part1, Day4.part2], // 2560, 1910
     5: [Day5.part1],             // 6949
     6: [Day6.part1],             // 4559
+    7: [Day7.part1, Day7.part2], // 1545311493300, 169122112716571
 ]
 
 
