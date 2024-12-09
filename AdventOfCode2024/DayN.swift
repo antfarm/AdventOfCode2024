@@ -12,17 +12,13 @@ struct DayN {
     
     static func part1(_ input: String) -> String {
         
-        let lines = input.split(separator: "\n")
-        
-        return String(lines.count)
+        return String(input.count)
     }
     
     
     static func part2(_ input: String) -> String {
         
-        let lines = input.split(separator: "\n")
-        
-        return String(lines.count)
+        return String(input.count)
     }
 }
 
