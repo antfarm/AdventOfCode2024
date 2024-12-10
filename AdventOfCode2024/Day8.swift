@@ -62,16 +62,16 @@ struct Day8 {
         
         let frequencies = Array(Set(input).subtracting(Set(".#\n"))).map { String("\($0)") }
 
-        let world = input.split(separator: "\n").map { line in Array(line).map { "\($0)" } }
-        let (width, height) = (world[0].count, world.count)
+        let grid = columns(fromInput: input)
+        let (width, height) = (grid.count, grid[0].count)
         
-        let coordinates = Array(world.indices).reduce([]) { coords, row in
-            coords + Array(world[row].indices).map { column in [(Int(column), Int(row))] }.reduce([], +)
+        let coordinates = Array(grid[0].indices).reduce([]) { coordinates, row in
+            coordinates + Array(grid.indices).map { column in [(column, row)] }.reduce([], +)
         }
 
         let antinodes: [(Int, Int)] = frequencies.reduce([]) { allAntinodes, frequency in
             
-            let antennas = coordinates.filter { world[$0.0][$0.1] == frequency }
+            let antennas = coordinates.filter { grid[$0.0][$0.1] == frequency }
             
             let antennaPairs = antennas.indices.reduce([]) { pairs, i in
                 pairs + antennas[(i+1)...].map { element in (antennas[i], element) }
@@ -92,31 +92,15 @@ struct Day8 {
         
         return uniqueAntinodes
     }
+    
+    
+    fileprivate static func columns(fromInput input: String) -> [[String]] {
+        
+        let lines = input.split(separator: "\n")        
+        
+        let rows = lines.map { line in Array(line).map { "\($0)" } }
+        let columns = rows[0].indices.map { i in rows.map { line in line[i] } }
+        
+        return columns
+    }
 }
-
-
-/**
- 
- 9 . . . . . . . . . . . . o . . . . . . .
- 8 . . . . . . . . . . . . . . . . . . . .
- 7 . . . . . . . . . . . o . . . . . . . .
- 6 . . . . . . . . . . . . . . . . . . . .
- 5 . . . . . . . . . . o . . . . . . . . .
- 4 . . . . . . . . . . . . . . . . . . . .
- 3 . . . . . . . . . o . . . . . . . . . .
- 2 . . . . . . . . . . . . . . . . . . . .
- 1 . . . . . . . . B . . . . . . . . . . .
- 0 . . . . . . . . . . . . . . . . . . . .
- 9 . . . . . . . o . . . . . . . . . . . .
- 8 . . . . . . . . . . . . . . . . . . . .
- 7 . . . . . . A . . . . . . . . . . . . .
- 6 . . . . . . . . . . . . . . . . . . . .
- 5 . . . . . o . . . . . . . . . . . . . .
- 4 . . . . . . . . . . . . . . . . . . . .
- 3 . . . . o . . . . . . . . . . . . . . .
- 2 . . . . . . . . . . . . . . . . . . . .
- 1 . . . o . . . . . . . . . . . . . . . .
- 0 . . . . . . . . . . . . . . . . . . . .
-   0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9
- 
- */
