@@ -21,4 +21,3 @@ struct DayN {
         return String(input.count)
     }
 }
-
