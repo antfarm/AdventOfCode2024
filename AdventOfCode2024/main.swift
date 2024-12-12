@@ -22,6 +22,7 @@ let days: [Int:[Solution]] = [
     8:  [Day8.part1,  Day8.part2],  // 269, 949
     9:  [Day9.part1             ],  // 6283170117911
     10: [Day10.part1, Day10.part2], // 461, 875
+    11: [Day11.part1, Day11.part2], // 216996, 257335372288947
 ]
 
 
