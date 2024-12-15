@@ -73,7 +73,6 @@ struct Day12 {
     fileprivate static func neighbors(plot: (Int, Int), offsets: [(Int, Int)]) -> [(Int, Int)] {
         
         let (plotX, plotY) = plot
-        let offsets = [(-1, 0), (0, -1), (1, 0), (0, 1)]
         
         return offsets.map { (dx, dy) in (plotX + dx, plotY + dy) }
     }
