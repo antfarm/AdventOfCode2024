@@ -13,7 +13,7 @@ struct Day9 {
     static func part1(_ input: String) -> String {
 
         let disk = blocks(fromDiskMap: input)
-        let defragmentedDisk = defragmentMutable(disk: disk)
+        let defragmentedDisk = defragment(disk: disk)
         
         let checksum = checksum(disk: defragmentedDisk)
         
@@ -30,20 +30,6 @@ struct Day9 {
         return defragment(disk: Array(disk[0..<index] + [disk.last!] + disk[index+1..<disk.count-1]))
     }
     
-    
-    fileprivate static func defragmentMutable(disk: [Int]) -> [Int] {
-        
-        var mutableDisk = disk
-        
-        while true {            
-            guard let index = mutableDisk.firstIndex(of: -1) else {
-                return mutableDisk
-            }
-            
-            mutableDisk = Array(mutableDisk[0..<index] + [mutableDisk.last!] + mutableDisk[index+1..<mutableDisk.count-1])
-        }
-    }
-
     
     fileprivate static func checksum(disk: [Int]) -> Int {
         
