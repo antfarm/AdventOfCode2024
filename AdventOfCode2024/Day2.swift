@@ -49,6 +49,5 @@ struct Day2 {
         return lines.map { line in
             line.split(separator: " ").map { Int($0)! }
         }
-
     }
 }
