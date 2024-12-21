@@ -63,7 +63,7 @@ struct Day18 {
                         
             if frontier.isEmpty { return nil }
             
-            if frontier.contains(where: { $0.0 == end.0 && $0.1 == end.1 }) { return cost }
+            if frontier.contains(where: { $0 == end }) { return cost }
             
             let neighbors = frontier.flatMap { x, y in                
                 offsets.map { dx, dy in
@@ -73,7 +73,7 @@ struct Day18 {
                     (0..<size).contains(x) && (0..<size).contains(y)
                 }
                 .filter { x, y in
-                    !obstacles.contains(where: { $0.0 == x && $0.1 == y }) 
+                    !obstacles.contains(where: { $0 == (x, y) })
                 }
             }
 
@@ -84,7 +84,7 @@ struct Day18 {
             let visited = frontier + visited
 
             let frontier = uniqueNeighbors.filter { x, y in
-                !visited.contains(where: { $0.0 == x && $0.1 == y })
+                !visited.contains(where: { $0 == (x, y) })
             }
             
             return costOfShortestPath(frontier: frontier, visited: visited, cost: cost + 1)
