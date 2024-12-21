@@ -24,7 +24,7 @@ struct Day14 {
 
     static func part2(_ input: String) -> String {
         
-        let robots = robots(fromInput: input)
+//        let robots = robots(fromInput: input)
 
         let seconds = 7055
         
