@@ -19,6 +19,7 @@
 		143B87912D1609630064FC5A /* Day20.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143B87902D1609610064FC5A /* Day20.swift */; };
 		143B87942D172F1B0064FC5A /* Day21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143B87932D172F170064FC5A /* Day21.swift */; };
 		14A4160C2D081DBD0025C7B0 /* Day10.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A4160B2D081DBD0025C7B0 /* Day10.swift */; };
+		14A6DC382D195E0400E0202C /* Day22.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A6DC372D195DFE00E0202C /* Day22.swift */; };
 		14B0E1F22D05BE6A00CD0483 /* Day8.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B0E1F12D05BE6A00CD0483 /* Day8.swift */; };
 		14CF34372D1031DE003D00BC /* Day16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF34362D1031DE003D00BC /* Day16.swift */; };
 		14D2A6702D0AFEDF00A125C4 /* Day12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2A66F2D0AFEDF00A125C4 /* Day12.swift */; };
@@ -68,6 +69,8 @@
 		143B87972D172F5A0064FC5A /* input21.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input21.txt; sourceTree = "<group>"; };
 		14A4160B2D081DBD0025C7B0 /* Day10.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day10.swift; sourceTree = "<group>"; };
 		14A4160D2D081DDF0025C7B0 /* input10.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input10.txt; sourceTree = "<group>"; };
+		14A6DC372D195DFE00E0202C /* Day22.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day22.swift; sourceTree = "<group>"; };
+		14A6DC392D195E2300E0202C /* input22.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input22.txt; sourceTree = "<group>"; };
 		14B0E1F12D05BE6A00CD0483 /* Day8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day8.swift; sourceTree = "<group>"; };
 		14B0E1F32D05BE9300CD0483 /* input8.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = input8.txt; sourceTree = "<group>"; };
 		14CF34362D1031DE003D00BC /* Day16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day16.swift; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 				143B878F2D1408470064FC5A /* input19.txt */,
 				143B87922D16096B0064FC5A /* input20.txt */,
 				143B87972D172F5A0064FC5A /* input21.txt */,
+				14A6DC392D195E2300E0202C /* input22.txt */,
 			);
 			path = input;
 			sourceTree = "<group>";
@@ -172,6 +176,7 @@
 				143B878D2D1408390064FC5A /* Day19.swift */,
 				143B87902D1609610064FC5A /* Day20.swift */,
 				143B87932D172F170064FC5A /* Day21.swift */,
+				14A6DC372D195DFE00E0202C /* Day22.swift */,
 				1403AA1D2CFDF75F007DFD55 /* DayN.swift */,
 				1403AA112CFDB4E2007DFD55 /* input */,
 			);
@@ -247,6 +252,7 @@
 				14B0E1F22D05BE6A00CD0483 /* Day8.swift in Sources */,
 				1403AA182CFDB797007DFD55 /* Day2.swift in Sources */,
 				1403AA1B2CFDF62A007DFD55 /* Day3.swift in Sources */,
+				14A6DC382D195E0400E0202C /* Day22.swift in Sources */,
 				14D6B1EF2D0183D80023EACE /* Day5.swift in Sources */,
 				143B87822D11799C0064FC5A /* Day17.swift in Sources */,
 				14D2A6752D0C274300A125C4 /* Day13.swift in Sources */,
