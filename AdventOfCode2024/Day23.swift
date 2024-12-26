@@ -15,8 +15,38 @@ struct Day23 {
         
         let connections = connections(fromInput: input)
 
-        let computers = Set(connections.map { [$0.0, $0.1]}.reduce([], +))
+        let connectedComputers = networkMap(connections: connections)
 
+        let computersWithT = Set(connections.map { [$0.0, $0.1]}.reduce([], +))
+            .filter { $0.starts(with: "t") }
+
+        let triples = computersWithT.flatMap { computer1 in
+            
+            let connectedTo1 = connectedComputers[computer1]!
+            
+            return connectedTo1.flatMap { computer2 in
+                
+                let connectedTo1 = connectedTo1.filter { $0 != computer2 }
+                let connectedTo2 = connectedComputers[computer2]!.filter { $0 != computer1 }
+                let connectedTo1And2 = Set(connectedTo1).intersection(Set(connectedTo2))
+                    
+                return connectedTo1And2.map { computer3 in
+                    let triple = [computer1, computer2, computer3].sorted()
+                    return "\(triple[0])-\(triple[1])-\(triple[2])"
+                }
+            }
+        }
+        
+        let uniqueTriples = Set(triples)
+        
+        return String(uniqueTriples.count)
+    }
+    
+    
+    fileprivate static func networkMap(connections: [(String, String)]) -> [String:[String]] {
+        
+        let computers = Set(connections.map { [$0.0, $0.1]}.reduce([], +))
+        
         let connectedComputersPairs = computers.map { computer in
             
             let connectedComputers = connections.compactMap { (computer1, computer2) in
@@ -27,33 +57,8 @@ struct Day23 {
             
             return (computer, connectedComputers)
         }
-
-        let connectedComputers = Dictionary(uniqueKeysWithValues: connectedComputersPairs)
-
-        let computersWithT = computers.filter { $0.starts(with: "t") }
         
-        let triples = computersWithT.flatMap { computerT in
-            
-            let connectedToT = connectedComputers[computerT]!
-            
-            return connectedToT.flatMap { computer1 in
-                
-                let connectedToT = connectedToT.filter { $0 != computer1 }
-                let connectedTo1 = connectedComputers[computer1]!.filter { $0 != computerT }
-                let connectedToTAnd1 = Set(connectedToT).intersection(Set(connectedTo1))
-                    
-                return connectedToTAnd1.map { computer2 in
-                    let triple = [computerT, computer1, computer2].sorted()
-                    return "\(triple[0])-\(triple[1])-\(triple[2])"
-                }
-            }
-        }
-        
-        let uniqueTriples = Set(triples)
-        
-        print(uniqueTriples.sorted())
-        
-        return String(uniqueTriples.count)
+        return Dictionary(uniqueKeysWithValues: connectedComputersPairs)
     }
     
     
