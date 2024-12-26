@@ -17,8 +17,7 @@ struct Day23 {
 
         let connectedComputers = networkMap(connections: connections)
 
-        let computersWithT = Set(connections.map { [$0.0, $0.1]}.reduce([], +))
-            .filter { $0.starts(with: "t") }
+        let computersWithT = connectedComputers.keys.filter { $0.starts(with: "t") }
 
         let triples = computersWithT.flatMap { computer1 in
             
@@ -43,6 +42,22 @@ struct Day23 {
     }
     
     
+    static func part2(_ input: String) -> String {
+        
+        let connections = connections(fromInput: input)
+        
+        let connectedComputers = networkMap(connections: connections)
+        
+        for computer in connectedComputers.keys.sorted() {
+            print("\(computer): \(connectedComputers[computer]!)")
+        }
+        
+        
+        connectedComputers.find { }
+        return String(connectedComputers.count)
+    }
+    
+
     fileprivate static func networkMap(connections: [(String, String)]) -> [String:[String]] {
         
         let computers = Set(connections.map { [$0.0, $0.1]}.reduce([], +))

@@ -1,29 +1,3 @@
-["aq", "cg", "co", "de", "ka", "kh", "qp", "ta", "tb", "tc", "td", "ub", "vc", "wh", "wq", "yn"]
-
-    (T) aq: ["yn", "vc", "cg", "wq"]
-
-        (1) yn: ["cg", "wh", "td"]
-            
-            (2) aq: ["yn", "vc", "cg", "wq"]
-                
-                
-            
-            
-            
-            (2) cg: ["de", "tb", "yn", "aq"]
-            (2) wh: ["tc", "td", "yn", "qp"]
-            (2) td: ["tc", "wh", "qp", "yn"]
-
-        (1) vc: ["ub", "wq", "tb"]
-            ...
-            
-        (1) cg: ["de", "tb", "yn"]
-            ...
-            
-        (1) wq: ["tb", "ub", "vc"]
-            ...
-
-
 aq: ["yn", "vc", "cg", "wq"]
 cg: ["de", "tb", "yn", "aq"]
 co: ["ka", "ta", "de", "tc"]
