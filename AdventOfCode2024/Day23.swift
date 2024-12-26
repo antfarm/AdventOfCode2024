@@ -53,7 +53,7 @@ struct Day23 {
         }
         
         
-        connectedComputers.find { }
+//        connectedComputers.find { }
         return String(connectedComputers.count)
     }
     
