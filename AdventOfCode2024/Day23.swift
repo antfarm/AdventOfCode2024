@@ -14,8 +14,10 @@ struct Day23 {
     static func part1(_ input: String) -> String {
         
         let connections = connections(fromInput: input)
-        
-        let connectionsByComputer = connections.map { (computer, _) in
+
+        let computers = Set(connections.map { [$0.0, $0.1]}.reduce([], +))
+
+        let connectedComputersPairs = computers.map { computer in
             
             let connectedComputers = connections.compactMap { (computer1, computer2) in
                 if computer1 == computer { return computer2 }
@@ -25,10 +27,33 @@ struct Day23 {
             
             return (computer, connectedComputers)
         }
+
+        let connectedComputers = Dictionary(uniqueKeysWithValues: connectedComputersPairs)
+
+        let computersWithT = computers.filter { $0.starts(with: "t") }
         
-        print(connectionsByComputer)
+        let triples = computersWithT.flatMap { computerT in
+            
+            let connectedToT = connectedComputers[computerT]!
+            
+            return connectedToT.flatMap { computer1 in
+                
+                let connectedToT = connectedToT.filter { $0 != computer1 }
+                let connectedTo1 = connectedComputers[computer1]!.filter { $0 != computerT }
+                let connectedToTAnd1 = Set(connectedToT).intersection(Set(connectedTo1))
+                    
+                return connectedToTAnd1.map { computer2 in
+                    let triple = [computerT, computer1, computer2].sorted()
+                    return "\(triple[0])-\(triple[1])-\(triple[2])"
+                }
+            }
+        }
         
-        return String(connections.count)
+        let uniqueTriples = Set(triples)
+        
+        print(uniqueTriples.sorted())
+        
+        return String(uniqueTriples.count)
     }
     
     
