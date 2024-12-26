@@ -48,19 +48,33 @@ struct Day23 {
         
         let connectedComputers = networkMap(connections: connections)
         
-        for computer in connectedComputers.keys.sorted() {
-            print("\(computer): \(connectedComputers[computer]!)")
-        }
+//        for computer in connectedComputers.keys.sorted() {
+//            print("\(computer): \(connectedComputers[computer]!)")
+//        }
         
+        let computers = connectedComputers.keys.map { String($0) }
         
-//        connectedComputers.find { }
-        return String(connectedComputers.count)
+        let computer = computers.first { computer1 in
+            
+            let connectedTo1 = connectedComputers[computer1]!
+            
+            return connectedTo1.allSatisfy { computer2 in
+                true
+//                connectedComputers[computer1].contains(computer2)
+            }
+        }!
+        
+        let largestGroup = [computer] + connectedComputers[computer]!
+        
+        let password = largestGroup.sorted().joined(separator: ",")
+        
+        return password
     }
     
 
     fileprivate static func networkMap(connections: [(String, String)]) -> [String:[String]] {
         
-        let computers = Set(connections.map { [$0.0, $0.1]}.reduce([], +))
+        let computers = Set(connections.map { [$0.0, $0.1] }.reduce([], +))
         
         let connectedComputersPairs = computers.map { computer in
             
