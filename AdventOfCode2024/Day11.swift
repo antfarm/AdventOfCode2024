@@ -30,7 +30,7 @@ struct Day11 {
     
     
     
-    // (Stolen) idea for scaling the solution to 75 iterations: The order of stones does not matter,
+    // Borrowed idea for scaling the solution to 75 iterations: The order of stones does not matter,
     // so it is sufficient to keep track of how often each number appears on the stones.
     
     static func part2(_ input: String) -> String {
