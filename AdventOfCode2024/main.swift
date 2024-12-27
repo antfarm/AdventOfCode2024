@@ -12,15 +12,15 @@ typealias Solution = (String) -> String
 
 let days: [Int:[Solution]] = [
     
-    1:  [Day1.part1,  Day1.part2],  // 1873376, 18997088
-    2:  [Day2.part1,  Day2.part2],  // 306, 366
-    3:  [Day3.part1,  Day3.part2],  // 170778545, 82868252
-    4:  [Day4.part1,  Day4.part2],  // 2560, 1910
-    5:  [Day5.part1             ],  // 6949
-    6:  [Day6.part1             ],  // 4559
-    7:  [Day7.part1,  Day7.part2],  // 1545311493300, 169122112716571
-    8:  [Day8.part1,  Day8.part2],  // 269, 949
-    9:  [Day9.part1             ],  // 6283170117911
+     1: [Day1.part1,  Day1.part2],  // 1873376, 18997088
+     2: [Day2.part1,  Day2.part2],  // 306, 366
+     3: [Day3.part1,  Day3.part2],  // 170778545, 82868252
+     4: [Day4.part1,  Day4.part2],  // 2560, 1910
+     5: [Day5.part1             ],  // 6949
+     6: [Day6.part1             ],  // 4559
+     7: [Day7.part1,  Day7.part2],  // 1545311493300, 169122112716571
+     8: [Day8.part1,  Day8.part2],  // 269, 949
+     9: [Day9.part1             ],  // 6283170117911
     10: [Day10.part1, Day10.part2], // 461, 875
     11: [Day11.part1, Day11.part2], // 216996, 257335372288947
     12: [Day12.part1,            ], // 1486324
@@ -36,6 +36,7 @@ let days: [Int:[Solution]] = [
     22: [Day22.part1, Day22.part2], // 14869099597, 1717
     23: [Day23.part1, Day23.part2], // 1230, az,cj,kp,lm,lt,nj,rf,rx,sn,ty,ui,wp,zo
     24: [Day24.part1             ], // 64755511006320
+    25: [Day25.part1             ], // 3242
 ]
 
 
