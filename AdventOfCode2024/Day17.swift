@@ -105,7 +105,7 @@ struct Day17 {
     
     fileprivate static func debugInfo(fromInput input: String) -> ((Int, Int, Int), [Int]) {
         
-        let regex = /Register A: ([0-9]+)\nRegister B: ([0-9]+)\nRegister C: ([0-9]+)\nProgram: (.*)/
+        let regex = /Register A: ([0-9]+)\nRegister B: ([0-9]+)\nRegister C: ([0-9]+)\n\nProgram: (.*)/
         let match = input.firstMatch(of: regex)!
         
         let registers = (Int(match.1)!, Int(match.2)!, Int(match.3)!)

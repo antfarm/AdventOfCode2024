@@ -59,4 +59,5 @@ func input(forDay day: Int) -> String {
     
     return contents
         // remove newline at end of file that Xcode keeps adding
-        .split(whereSeparator: \.isNewline).joined(separator: "\n")}
+        .trimmingCharacters(in: .newlines)
+}
